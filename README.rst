@@ -22,7 +22,7 @@ Using functions
     # Number to string representation
     >>> base_repr.int_to_repr(1234, base=62)
     'Ju'
-    >>> base_repr.repr_to_int('Ju', 62)
+    >>> base_repr.repr_to_int('Ju', base=62)
     1234
 
     # Bytes to string representation
