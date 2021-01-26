@@ -5,7 +5,7 @@ with open("README.rst", "r", encoding='utf-8') as fh:
 
 setuptools.setup(
     name="base_repr",
-    version='1.0.1',
+    version='1.0.2',
     author="Hyouk Oh",
     author_email="h.5.kure@gmail.com",
     description="This is for representation of Python data (int, bytes, str) in the desired base system, "
@@ -15,7 +15,10 @@ setuptools.setup(
     url="https://github.com/h5kure/base_repr.git",
     packages=setuptools.find_packages(),
     classifiers=[
-        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],

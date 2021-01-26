@@ -12,6 +12,18 @@ You can also encode strings or decode encoded strings. (Strings are not guarante
 
 It started with inspiration from ``base62`` and ``numpy.base_repr`` aim to be universally used in multiple systems such as ``base36`` in systems where ``base62`` cannot be applied because it is case-insensitive systems.
 
+.. image:: https://img.shields.io/pypi/v/base-repr
+    :target: https://pypi.org/project/base-repr/
+
+.. image:: https://img.shields.io/pypi/wheel/base-repr
+    :target: https://pypi.org/project/base-repr/
+
+.. image:: https://img.shields.io/pypi/l/base-repr
+    :target: https://pypi.org/project/base-repr/
+
+.. image:: https://img.shields.io/pypi/pyversions/base-repr
+    :target: https://pypi.org/project/base-repr/
+
 Installing Base Repr
 --------------------
 Base Repr is available on PyPI:
