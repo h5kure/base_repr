@@ -5,7 +5,7 @@ with open("README.rst", "r", encoding='utf-8') as fh:
 
 setuptools.setup(
     name="base_repr",
-    version='1.0.0',
+    version='1.0.1',
     author="Hyouk Oh",
     author_email="h.5.kure@gmail.com",
     description="This is for representation of Python data (int, bytes, str) in the desired base system, "

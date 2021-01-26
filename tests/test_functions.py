@@ -42,11 +42,6 @@ class TestCase(unittest.TestCase):
         for s in self.fixtures[2]:
             self.assertEqual(s, repr_to_str(str_to_repr(s)))
 
-    def test_padding(self):
-        self.assertEqual('0000', int_to_repr(0, padding=4))
-        self.assertEqual('0000', bytes_to_repr(bytes(), padding=4))
-
-
 
 if __name__ == '__main__':
     unittest.main()
