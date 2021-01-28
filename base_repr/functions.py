@@ -9,9 +9,9 @@ MAX_BASE = len(DIGITS)
 
 def _check_base(base: int):
     if base > MAX_BASE:
-        raise ValueError(f"Cannot handle more than {MAX_BASE} bases.")
+        raise ValueError("Cannot handle more than {} bases.".format(MAX_BASE))
     elif base < MIN_BASE:
-        raise ValueError(f"Cannot handle less than {MIN_BASE} bases.")
+        raise ValueError("Cannot handle less than {} bases.".format(MIN_BASE))
 
 
 def int_to_bytes(number: int, *, byteorder: str = sys.byteorder) -> bytes:

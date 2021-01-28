@@ -1,6 +1,6 @@
-Base Repr
-=========
-This module is for expressing Python data in the desired base system, such as 62 base system.
+Base Representation
+===================
+This module is for represent Python data in the desired base system, like Base36 and Base62.
 
 Introduce
 ---------
@@ -10,7 +10,7 @@ This module was developed to make it easier to use for URLs or other data fields
 
 You can also encode strings or decode encoded strings. (Strings are not guaranteed to be shortened.)
 
-It started with inspiration from ``base62`` and ``numpy.base_repr`` aim to be universally used in multiple systems such as ``base36`` in systems where ``base62`` cannot be applied because it is case-insensitive systems.
+It started with inspiration from ``base62`` and ``numpy.base_repr`` aim to be universally used in multiple systems such as ``Base36`` in systems where ``Base62`` cannot be applied because it is case-insensitive systems.
 
 .. image:: https://img.shields.io/pypi/v/base-repr
     :target: https://pypi.org/project/base-repr/
@@ -24,15 +24,18 @@ It started with inspiration from ``base62`` and ``numpy.base_repr`` aim to be un
 .. image:: https://img.shields.io/pypi/pyversions/base-repr
     :target: https://pypi.org/project/base-repr/
 
-Installing Base Repr
---------------------
-Base Repr is available on PyPI:
+.. image:: https://img.shields.io/pypi/dm/base-repr
+    :target: https://pypi.org/project/base-repr/
+
+Installing Base Representation
+------------------------------
+Base Representation is available on PyPI:
 
 .. code-block:: bash
 
     $ python -m pip install base-repr
 
-Base Repr supports Python 3.6+
+Base Representation is tested on Python 3.6+
 
 How to use
 ----------
@@ -81,7 +84,7 @@ You can use classes to reduce repetitive parameters.
     >>> base62.to_repr('int or bytes or str')
     '3xDXjUL88hX1Dq95EbXKCI7cOP'
 
-You can also inherit a class to create and use the desired base system.
+You can also inherit a class to create your own added desired base system.
 
 .. code-block:: python
 
