@@ -5,11 +5,11 @@ with open("README.rst", "r", encoding='utf-8') as fh:
 
 setuptools.setup(
     name="base_repr",
-    version='1.0.2',
+    version='1.0.3',
     author="Hyouk Oh",
     author_email="h.5.kure@gmail.com",
     description="This is for representation of Python data (int, bytes, str) in the desired base system, "
-                "like base62 system.",
+                "like base62, base36 (or anything else) system.",
     long_description=long_description,
     long_description_content_type="text/x-rst",
     url="https://github.com/h5kure/base_repr.git",
