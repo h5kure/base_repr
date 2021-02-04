@@ -55,6 +55,14 @@ class TestCase(unittest.TestCase):
             for base in (self.base62, self.base36):
                 self.assertEqual(data, base.repr_to_str(base.str_to_repr(data)))
 
+    def test_to_repr(self):
+        for fixtures, func in zip(self.fixtures, ('int_to_repr', 'bytes_to_repr', 'str_to_repr')):
+            for data, out62, out36 in fixtures:
+                self.assertEqual(out62, self.base62.to_repr(data))
+                self.assertEqual(out36, self.base36.to_repr(data))
+                for base in (self.base62, self.base36):
+                    self.assertEqual(base.to_repr(data), getattr(base, func)(data))
+
 
 if __name__ == '__main__':
     unittest.main()

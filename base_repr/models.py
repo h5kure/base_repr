@@ -1,7 +1,7 @@
 import sys
 from typing import Union
 
-from .functions import int_to_repr, repr_to_int, bytes_to_repr, repr_to_bytes, str_to_repr, repr_to_str
+from .functions import int_to_repr, repr_to_int, bytes_to_repr, repr_to_bytes, str_to_repr, repr_to_str, to_repr
 
 
 class BaseRepr(object):
@@ -31,16 +31,7 @@ class BaseRepr(object):
         return repr_to_str(string_, base=self.base, byteorder=self.byteorder, encoding=self.encoding)
 
     def to_repr(self, value: Union[int, bytes, str]) -> str:
-        if isinstance(value, str):
-            return self.str_to_repr(value)
-
-        if isinstance(value, bytes):
-            return self.bytes_to_repr(value)
-
-        if isinstance(value, int):
-            return self.int_to_repr(value)
-
-        raise TypeError(f"unsupported value type: {type(value)}")
+        return to_repr(value, base=self.base, padding=self.padding, byteorder=self.byteorder, encoding=self.encoding)
 
 
 class Base62(BaseRepr):

@@ -1,5 +1,6 @@
 import string
 import sys
+from typing import Union
 
 DIGITS = string.digits + string.ascii_uppercase + string.ascii_lowercase
 DIGITS_INDICES = {char: index for index, char in enumerate(DIGITS)}
@@ -156,3 +157,20 @@ def repr_to_str(string_: str, *, base: int = 2, byteorder: str = sys.byteorder, 
     :rtype: str
     """
     return repr_to_bytes(string_, base=base, byteorder=byteorder).decode(encoding)
+
+
+def to_repr(value: Union[int, bytes, str], *,
+            base: int = 2,
+            padding: int = 0,
+            byteorder: str = sys.byteorder,
+            encoding: str = 'utf-8') -> str:
+    if isinstance(value, str):
+        return str_to_repr(value, base=base, padding=padding, byteorder=byteorder, encoding=encoding)
+
+    if isinstance(value, bytes):
+        return bytes_to_repr(value, base=base, padding=padding, byteorder=byteorder)
+
+    if isinstance(value, int):
+        return int_to_repr(value, base=base, padding=padding)
+
+    raise TypeError(f"Unsupported value type: {type(value)}")

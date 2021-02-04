@@ -4,13 +4,13 @@ This module is for represent Python data in the desired base system, like Base36
 
 Introduce
 ---------
-It supports up to 62 base systems that can be expressed only with digits and case sensitive alphabets.
+This supports from 2 base systems to 62 base systems that can be expressed only with digits and case sensitive alphabets.
 
 This module was developed to make it easier to use for URLs or other data fields requiring length restrictions by expressing large numbers or hash values to a shorter length.
 
 You can also encode strings or decode encoded strings. (Strings are not guaranteed to be shortened.)
 
-It started with inspiration from ``base62`` and ``numpy.base_repr`` aim to be universally used in multiple systems such as ``Base36`` in systems where ``Base62`` cannot be applied because it is case-insensitive systems.
+This started with inspiration from ``base62`` idea and ``numpy.base_repr`` library and aim to be universally used in multiple systems such as ``Base36`` in systems where ``Base62`` cannot be applied because it is case-insensitive systems.
 
 .. image:: https://img.shields.io/pypi/v/base-repr
     :target: https://pypi.org/project/base-repr/
@@ -69,6 +69,11 @@ Using functions
     >>> base_repr.repr_to_str('8QMwioi', base=62, byteorder='little', encoding='utf-8')
     'Hello'
 
+    # simple wrapper to union above 3 functions for data type int, bytes and str.
+    >>> base_repr.to_repr('int or bytes or str')
+    '3xDXjUL88hX1Dq95EbXKCI7cOP'
+
+
 Using class
 """""""""""
 You can use classes to reduce repetitive parameters.
@@ -84,7 +89,7 @@ You can use classes to reduce repetitive parameters.
     >>> base62.to_repr('int or bytes or str')
     '3xDXjUL88hX1Dq95EbXKCI7cOP'
 
-You can also inherit a class to create your own added desired base system.
+You can also inherit a base class to create your own desired base system simply.
 
 .. code-block:: python
 
