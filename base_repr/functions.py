@@ -164,6 +164,21 @@ def to_repr(value: Union[int, bytes, str], *,
             padding: int = 0,
             byteorder: str = sys.byteorder,
             encoding: str = 'utf-8') -> str:
+    """
+    Return a string representation of `value` (int, bytes, str) in the given `base` system.
+    :param value: data value to convert
+    :type value: Union[int, bytes, str]
+    :param base: base number
+    :type base: int
+    :param padding: fill the remaining digits with zeros. default 0 means no padding.
+    :type padding: int
+    :param byteorder: determines the byte order used to represent the integer.
+    :type byteorder: str
+    :param encoding: encoding to encode string to bytes
+    :type encoding: str
+    :return: string representation of `value` in the given `base` system.
+    :rtype: str
+    """
     if isinstance(value, str):
         return str_to_repr(value, base=base, padding=padding, byteorder=byteorder, encoding=encoding)
 
