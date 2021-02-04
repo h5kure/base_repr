@@ -73,6 +73,77 @@ Using functions
     >>> base_repr.to_repr('int or bytes or str', base=62)
     '3xDXjUL88hX1Dq95EbXKCI7cOP'
 
+Choose your base to represent (or from representation)
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+You can choose base system from 2 to 62.
+2 is used by default.
+
+.. code-block:: python
+
+    >>> import base_repr
+    >>> base_repr.to_repr(1234)
+    '10011010010'
+    >>> base_repr.to_repr(1234, base=2)
+    '10011010010'
+    >>> base_repr.to_repr(1234, base=16)
+    '4D2'
+    >>> base_repr.to_repr(1234, base=62)
+    'Ju'
+
+Choose padding to represent
+'''''''''''''''''''''''''''
+You can use padding to fit the number of digits you want.
+The default is 0.
+
+.. code-block:: python
+
+    >>> base_repr.to_repr(10, padding=10)
+    '0000001010'
+    >>> base_repr.repr_to_int('0000001010')
+    10
+
+Choose your byteorder which 'little' or 'big'
+'''''''''''''''''''''''''''''''''''''''''''''
+You can choose byteorder from 'little' or 'big' for `bytes` or `str` data type.
+System values (sys.byteorder) are used by default.
+
+.. code-block:: python
+
+    >>> import base_repr
+    >>> base_repr.to_repr('Hello', base=62, byteorder='little')
+    '8QMwioi'
+    >>> base_repr.repr_to_str('8QMwioi', base=62, byteorder='little')
+    'Hello'
+
+    >>> base_repr.to_repr('Hello', base=62, byteorder='big')
+    '5TP3P3v'
+    >>> base_repr.repr_to_str('5TP3P3v', base=62, byteorder='big')
+    'Hello'
+
+
+Choose your encoding
+''''''''''''''''''''
+You can choose encoding to represent (from representation) `str` data type.
+The default is 'utf-8'.
+
+.. code-block:: python
+
+    >>> import base_repr
+    >>> base_repr.to_repr('English', base=62, encoding='utf-8')
+    '2AeWfKYcJ3'
+    >>> base_repr.repr_to_str('2AeWfKYcJ3', base=62, encoding='utf-8')
+    'English'
+
+    >>> base_repr.to_repr('한글', base=62, encoding='utf-8')
+    'eBkBTHSP'
+    >>> base_repr.repr_to_str('eBkBTHSP', base=62, encoding='utf-8')
+    '한글'
+
+    >>> base_repr.to_repr('🍺', base=62, encoding='utf-16')
+    '17m0y4sjX'
+    >>> base_repr.repr_to_str('17m0y4sjX', base=62, encoding='utf-16')
+    '🍺'
+
 
 Using class
 """""""""""
