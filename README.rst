@@ -70,7 +70,7 @@ Using functions
     'Hello'
 
     # simple wrapper to union above 3 functions for data type int, bytes and str.
-    >>> base_repr.to_repr('int or bytes or str')
+    >>> base_repr.to_repr('int or bytes or str', base=62)
     '3xDXjUL88hX1Dq95EbXKCI7cOP'
 
 
