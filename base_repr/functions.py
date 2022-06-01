@@ -1,6 +1,6 @@
 import string
 import sys
-from typing import Union
+from typing import Literal, Union
 
 DIGITS = string.digits + string.ascii_uppercase + string.ascii_lowercase
 DIGITS_INDICES = {char: index for index, char in enumerate(DIGITS)}
@@ -15,7 +15,7 @@ def _check_base(base: int):
         raise ValueError("Cannot handle less than {} bases.".format(MIN_BASE))
 
 
-def int_to_bytes(number: int, *, byteorder: str = sys.byteorder) -> bytes:
+def int_to_bytes(number: int, *, byteorder: Literal['little', 'big'] = sys.byteorder) -> bytes:
     """
     convert integer to bytes
     :param number: integer
@@ -82,7 +82,7 @@ def repr_to_int(string_: str, *, base: int = 2) -> int:
     return number
 
 
-def bytes_to_repr(bytes_: bytes, *, base: int = 2, padding: int = 0, byteorder: str = sys.byteorder) -> str:
+def bytes_to_repr(bytes_: bytes, *, base: int = 2, padding: int = 0, byteorder: Literal['little', 'big'] = sys.byteorder) -> str:
     """
     Return a string representation of a bytes in the given `base` system.
     :param bytes_: bytes to convert.
@@ -101,7 +101,7 @@ def bytes_to_repr(bytes_: bytes, *, base: int = 2, padding: int = 0, byteorder: 
     return int_to_repr(int.from_bytes(bytes_, byteorder), base=base, padding=padding)
 
 
-def repr_to_bytes(string_: str, *, base: int = 2, byteorder: str = sys.byteorder) -> bytes:
+def repr_to_bytes(string_: str, *, base: int = 2, byteorder: Literal['little', 'big'] = sys.byteorder) -> bytes:
     """
     Return a bytes from a string representation of the given base system.
     :param string_: string representation in the `base` system.
@@ -122,7 +122,7 @@ def str_to_repr(string_: str,
                 *,
                 base: int = 2,
                 padding: int = 0,
-                byteorder: str = sys.byteorder,
+                byteorder: Literal['little', 'big'] = sys.byteorder,
                 encoding: str = 'utf-8') -> str:
     """
     Return a string representation of string in the given `base` system.
@@ -142,7 +142,7 @@ def str_to_repr(string_: str,
     return bytes_to_repr(string_.encode(encoding), base=base, padding=padding, byteorder=byteorder)
 
 
-def repr_to_str(string_: str, *, base: int = 2, byteorder: str = sys.byteorder, encoding: str = 'utf-8') -> str:
+def repr_to_str(string_: str, *, base: int = 2, byteorder: Literal['little', 'big'] = sys.byteorder, encoding: str = 'utf-8') -> str:
     """
     Return a string from a string representation in the given base system.
     :param string_: string representation in the `base` system.
@@ -162,7 +162,7 @@ def repr_to_str(string_: str, *, base: int = 2, byteorder: str = sys.byteorder, 
 def to_repr(value: Union[int, bytes, str], *,
             base: int = 2,
             padding: int = 0,
-            byteorder: str = sys.byteorder,
+            byteorder: Literal['little', 'big'] = sys.byteorder,
             encoding: str = 'utf-8') -> str:
     """
     Return a string representation of `value` (int, bytes, str) in the given `base` system.

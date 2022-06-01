@@ -1,12 +1,12 @@
 import sys
-from typing import Union
+from typing import Literal, Union
 
 from .functions import int_to_repr, repr_to_int, bytes_to_repr, repr_to_bytes, str_to_repr, repr_to_str, to_repr
 
 
 class BaseRepr(object):
     """Base class"""
-    def __init__(self, *, base: int = 2, padding: int = 0, byteorder: str = sys.byteorder, encoding: str = 'utf-8'):
+    def __init__(self, *, base: int = 2, padding: int = 0, byteorder: Literal['little', 'big'] = sys.byteorder, encoding: str = 'utf-8'):
         self.base = base
         self.padding = padding
         self.byteorder = byteorder
@@ -35,10 +35,10 @@ class BaseRepr(object):
 
 
 class Base62(BaseRepr):
-    def __init__(self, *, padding: int = 0, byteorder: str = sys.byteorder, encoding: str = 'utf-8'):
+    def __init__(self, *, padding: int = 0, byteorder: Literal['little', 'big'] = sys.byteorder, encoding: str = 'utf-8'):
         super().__init__(base=62, padding=padding, byteorder=byteorder, encoding=encoding)
 
 
 class Base36(BaseRepr):
-    def __init__(self, *, padding: int = 0, byteorder: str = sys.byteorder, encoding: str = 'utf-8'):
+    def __init__(self, *, padding: int = 0, byteorder: Literal['little', 'big'] = sys.byteorder, encoding: str = 'utf-8'):
         super().__init__(base=36, padding=padding, byteorder=byteorder, encoding=encoding)
