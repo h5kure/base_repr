@@ -1,6 +1,8 @@
+from __future__ import annotations
+
 import string
 import sys
-from typing import Literal, Union
+from typing import Literal
 
 DIGITS = string.digits + string.ascii_uppercase + string.ascii_lowercase
 DIGITS_INDICES = {char: index for index, char in enumerate(DIGITS)}
@@ -10,9 +12,9 @@ MAX_BASE = len(DIGITS)
 
 def _check_base(base: int):
     if base > MAX_BASE:
-        raise ValueError("Cannot handle more than {} bases.".format(MAX_BASE))
-    elif base < MIN_BASE:
-        raise ValueError("Cannot handle less than {} bases.".format(MIN_BASE))
+        raise ValueError(f"Cannot handle more than {MAX_BASE} bases.")
+    if base < MIN_BASE:
+        raise ValueError(f"Cannot handle less than {MIN_BASE} bases.")
 
 
 def int_to_bytes(number: int, *, byteorder: Literal['little', 'big'] = sys.byteorder) -> bytes:
@@ -159,7 +161,8 @@ def repr_to_str(string_: str, *, base: int = 2, byteorder: Literal['little', 'bi
     return repr_to_bytes(string_, base=base, byteorder=byteorder).decode(encoding)
 
 
-def to_repr(value: Union[int, bytes, str], *,
+def to_repr(value: int | bytes | str,
+            *,
             base: int = 2,
             padding: int = 0,
             byteorder: Literal['little', 'big'] = sys.byteorder,
@@ -167,7 +170,7 @@ def to_repr(value: Union[int, bytes, str], *,
     """
     Return a string representation of `value` (int, bytes, str) in the given `base` system.
     :param value: data value to convert
-    :type value: Union[int, bytes, str]
+    :type value: int | bytes | str
     :param base: base number
     :type base: int
     :param padding: fill the remaining digits with zeros. default 0 means no padding.
@@ -178,6 +181,7 @@ def to_repr(value: Union[int, bytes, str], *,
     :type encoding: str
     :return: string representation of `value` in the given `base` system.
     :rtype: str
+    :raises TypeError: raise TypeError when value type is unsupported.
     """
     if isinstance(value, str):
         return str_to_repr(value, base=base, padding=padding, byteorder=byteorder, encoding=encoding)

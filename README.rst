@@ -35,7 +35,7 @@ Base Representation is available on PyPI:
 
     $ python -m pip install base-repr
 
-Base Representation is tested on Python 3.6+
+Base Representation is tested on Python 3.7+
 
 How to use
 ----------

@@ -1,10 +1,12 @@
+from __future__ import annotations
+
 import sys
-from typing import Literal, Union
+from typing import Literal
 
 from .functions import int_to_repr, repr_to_int, bytes_to_repr, repr_to_bytes, str_to_repr, repr_to_str, to_repr
 
 
-class BaseRepr(object):
+class BaseRepr:
     """Base class"""
     def __init__(self, *, base: int = 2, padding: int = 0, byteorder: Literal['little', 'big'] = sys.byteorder, encoding: str = 'utf-8'):
         self.base = base
@@ -30,7 +32,7 @@ class BaseRepr(object):
     def repr_to_str(self, string_: str) -> str:
         return repr_to_str(string_, base=self.base, byteorder=self.byteorder, encoding=self.encoding)
 
-    def to_repr(self, value: Union[int, bytes, str]) -> str:
+    def to_repr(self, value: int | bytes | str) -> str:
         return to_repr(value, base=self.base, padding=self.padding, byteorder=self.byteorder, encoding=self.encoding)
 
 
