@@ -14,7 +14,7 @@ setuptools.setup(
     long_description_content_type="text/x-rst",
     url="https://github.com/h5kure/base_repr.git",
     packages=setuptools.find_packages(),
-    package_data={"*": ["py.typed"]},
+    package_data={"": ["py.typed"]},
     include_package_data=True,
     classifiers=[
         "Programming Language :: Python :: 3.7",
